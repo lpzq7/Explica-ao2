@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Filype</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000000;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #000000;
+      background-image: url('');
+      background-size: cover;
+      background-position: 50% 50%;
+      z-index: -1;
+    }
+    .content {
+      z-index: 1;
+      text-align: center;
+    }
+    .buttons {
+      margin: 20px 0;
+    }
+    .buttons button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .explanation {
+      display: none;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+    .explanation.active {
+      display: block;
+    }
+    .back-to-home {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- particles.js container -->
+  <div id="particles-js"></div>
+
+  <!-- Content on top of particles -->
+  <div class="content">
+    <h1>2 ANO DE JOGOS DIGITAIS</h1>
+    <div class="buttons">
+      <button onclick="showExplanation('explicacao1')">HTML</button>
+      <button onclick="showExplanation('explicacao2')">CSS</button>
+      <button onclick="showExplanation('explicacao3')">JS</button>
+    </div>
+    <div id="explicacao1" class="explanation">
+      <h2>Explicação HTML</h2>
+      <p>HTML é como a base de qualquer página na internet. Ele usa diversos elementos ou "tags" para identificar e descrever várias partes do conteúdo, como textos, imagens e links.</p>
+    </div>
+    <div id="explicacao2" class="explanation">
+      <h2>Explicação CSS</h2>
+      <p>CSS é a linguagem que define como os documentos HTML são apresentados. Ela controla a aparência das páginas web, possibilitando aos desenvolvedores separar o conteúdo da forma como é exibido.</p>
+    </div>
+    <div id="explicacao3" class="explanation">
+      <h2>Explicação JavaScript</h2>
+      <p>JavaScript é uma linguagem de programação amplamente utilizada para criar conteúdos dinâmicos e interativos em páginas web. Juntamente com HTML e CSS, JavaScript é uma das três tecnologias fundamentais da web.</p>
+    </div>
+  </div>
+
+  <!-- Back to Home button -->
+  <button class="back-to-home" onclick="showExplanation('inicio')">Voltar</button>
+
+  <!-- scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js',
+    {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          },
+          "image": {
+            "src": "img/github.svg",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 140,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+
+    function showExplanation(id) {
+      var explanations = document.querySelectorAll('.explanation');
+      explanations.forEach(function(explanation) {
+        explanation.classList.remove('active');
+      });
+      if (id !== 'inicio') {
+        document.getElementById(id).classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
